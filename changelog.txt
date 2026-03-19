@@ -1,3 +1,10 @@
+v1.24 20260319
+[*]Fixed TTS v14.2 issues
+[*]LuaGameObjectScript -> LuaObject
+
+v1.23.1 20220412
+[*]Russian translation added
+
 v1.23 20200525
 [*]Greatly optimized the metadata that is stored when saving. The result is a massive reduction in stuttering that occurs during autosaves (especially with playing with lots of tiles). Instead, this metadata will be regenerated from scratch when the game is loaded.
 [*]Moved all tile data from being stored in the tiles to being stored in the global script. This eliminates the need to store the tile data in unusedTiles

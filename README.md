@@ -1,47 +1,41 @@
 # Carcassonne
-![Carcassonne](https://github.com/DinnerBuffet/TTSCarcassonne/blob/master/workshop%20splash.jpg)
-
-NOTE: I am no longer actively updating this mod. Others are welcome to branch the code and continue updating it, but as far as I know no one has. Issue reports will likely not be investigated.
+![Carcassonne](https://github.com/Arkadyking/TTSCarcassonne/blob/master/workshop%20splash.jpg)
 
 The game Tabletop Simulator is required to play the mod:
 
 http://store.steampowered.com/app/286160/Tabletop_Simulator/
 
-~~Workshop item for the Tabletop Simulator mod:~~
+Workshop item for the Tabletop Simulator mod:
 
-~~http://steamcommunity.com/sharedfiles/filedetails/?id=779900330~~
-
-The workshop item has been taken down. You will now have the download the save file yourself. The current version is available here:
-
-https://drive.google.com/uc?export=download&id=1wGsemzGAnhkjniPFhM9rOHjYS9nDWhwb
-
-On Windows, move the file to your Windows user's Documents\My Games\Tabletop Simulator\Saves folder
+https://steamcommunity.com/sharedfiles/filedetails/?id=2789962232
 
 ## Instructions
 
-Install Atom and the TTS plugin: http://berserk-games.com/knowledgebase/atom-editor-plugin/
+Install Visual Studio Code: https://code.visualstudio.com/
 
-In Atom, go to File->Settings->Packages->Click on settings for tabletopsimulator-lua
+Install the extension:
 
-Check "#include other files"
+https://marketplace.visualstudio.com/items?itemName=rolandostar.tabletopsimulator-lua
 
-Under "Base path for files you wish to #include", paste the path to your git folder
+Open your git folder in VS Code (File → Open Folder).
 
-Now load Carcassonne from the workshop and make a new save file. Load that save file.
+Load Carcassonne from the Workshop, create a new save, and load it in TTS.
 
-Now right-click your Project explorer on the left side and choose "Add project folder" and choose your git folder.
+In VS Code:
 
-You should now be able to edit the code as separate files, rather than one big global file. Select Packages->Tabletop Simulator->Save and Play to update and load your save file with script changes.
+Ctrl+Alt+L: Get Lua Scripts
 
-## Recommended optional packages
+Make some changes
 
-https://atom.io/packages/minimap
+Ctrl+Alt+S: Save And Play
 
-https://atom.io/packages/minimap-git-diff
+## Recommended optional extentions
 
-https://atom.io/packages/linter
+GitLens
 
-https://atom.io/packages/Sublime-Style-Column-Selection
+Lua
+
+Sublime Text Keymap
 
 ## Code guide
 
@@ -89,7 +83,7 @@ Contains code related to the feature mapping. Feature mapping relies on a few di
 
 *tileGrid* - a 2-dimensional table showing information about the tile + featureMap that exists in a particular x-y coordinate. The middle tile is represented as 17-17 (It's not 0-0 because I had issues serializing a table with negative indexes)
 
-*featureMap* - Contains a map of positions within this grid location to featureNums. The locations are defined here: https://github.com/DinnerBuffet/TTSCarcassonne/blob/master/tile_positions.jpg
+*featureMap* - Contains a map of positions within this grid location to featureNums. The locations are defined here: https://github.com/ArkadyKing/TTSCarcassonne/blob/master/tile_positions.jpg
 
 *featureList* - An aggregated summary of distinct features indexed by featureNum.
 
@@ -137,4 +131,4 @@ Contains XML UIs, mainly for the control panel.
 
 ### tile_data
 
-raw metadata used to represent the characteristics of the tile. For details see: https://github.com/DinnerBuffet/TTSCarcassonne/blob/master/tile_data/README.md
+raw metadata used to represent the characteristics of the tile. For details see: https://github.com/ArkadyKing/TTSCarcassonne/blob/master/tile_data/README.md
