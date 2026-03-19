@@ -454,7 +454,7 @@ function isValidFigureLocation(newFigure, xIndex, zIndex, featureMapPosition, fe
                             return false
                         elseif obj.getVar('figureName') == 'Tower' then
                             hasTower = true
-                        elseif tostring(obj) == 'Card(Clone) (LuaGameObjectScript)' then
+                        elseif tostring(obj) == 'Card(Clone) (LuaObject)' then
                             --it's the tile, we can ignore it
                         elseif obj.getVar('figureName') ~= GOLD_BAR_NAME then
                             if verbose then allErrorMessage("ERROR: There is an illegal piece in this tower location: " .. obj.getName(), activePlayers[currentPlayer]) end

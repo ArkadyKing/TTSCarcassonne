@@ -77,7 +77,7 @@ end
 
 function endTurn()
     for _, object in ipairs(getAllObjects()) do
-        if tostring(object) == 'Card(Clone) (LuaGameObjectScript)' or table.contains(FOLLOWER_TYPES, object.getVar('figureName')) or table.contains(SPECIAL_FIGURE_TYPES, object.getVar('figureName')) then
+        if tostring(object) == 'Card(Clone) (LuaObject)' or table.contains(FOLLOWER_TYPES, object.getVar('figureName')) or table.contains(SPECIAL_FIGURE_TYPES, object.getVar('figureName')) then
             object.highlightOff()
             object.clearButtons()
         end
@@ -961,7 +961,7 @@ end
 function clearArbitraryButtons(alsoClearHighlights)
     allPrisoners = towerGetPrisoners()
     for _, object in ipairs(getAllObjects()) do
-        if tostring(object) == 'Card(Clone) (LuaGameObjectScript)' then
+        if tostring(object) == 'Card(Clone) (LuaObject)' then
             if alsoClearHighlights then
                 object.highlightOff()
             end
