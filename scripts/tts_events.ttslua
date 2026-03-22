@@ -220,7 +220,7 @@ end
 
 function onObjectSpawn(spawned_object)
     --This is intended to be called when a tile is drawn from the stack.
-    if tostring(spawned_object) == 'Card(Clone) (LuaObject)' then
+    if isTileObject(spawned_object) then
         if controlPanelSettings['PnDDragon'] and not PnDIsDragonAwake(getTileDataForTile(spawned_object).specialFeatures) then
             gameNotification({"MESSAGE_DRAGON_TILE_DRAWN_BEFORE_AWAKENED"}, NEUTRAL_COLOR, activePlayers[currentPlayer])
         end
@@ -235,7 +235,7 @@ function onObjectDestroyed(dying_object)
     if needHandling then
         local allObjects = getAllObjects()
         for _, obj in ipairs(allObjects) do
-            if tostring(obj) == 'Card(Clone) (LuaObject)' then
+            if isTileObject(obj) then
                 local dX = dying_object.getPosition().x - obj.getPosition().x
                 local dZ = dying_object.getPosition().z - obj.getPosition().z
                 local rad = 0.01
@@ -257,7 +257,7 @@ end
 -- Activates whenever any object is dropped
 function onObjectDrop(player, droppedObject)
     if turnState == 'pre-game' then
-        if tostring(droppedObject) == 'Card(Clone) (LuaObject)' then
+        if isTileObject(droppedObject) then
             if not spamLock then
                 playerErrorMessage({"MESSAGE_DROP_GAME_NOT_STARTED"}, player)
                 spamLock = true
@@ -276,7 +276,7 @@ function onObjectDrop(player, droppedObject)
         --only print a message if it is a tile (facing up) or an object dropped on a tile
         local xIndex, zIndex, _, _ = getFigureTileLocation(droppedObject)
         local yRotation = droppedObject.getRotation().y / 90
-        if (tostring(droppedObject) == 'Card(Clone) (LuaObject)' and
+        if (isTileObject(droppedObject) and
           (isWithinErrorMargin(0, droppedObject.getRotation().x, TILE_PLACEMENT_MARGIN * 90) or
           isWithinErrorMargin(360, droppedObject.getRotation().x, TILE_PLACEMENT_MARGIN * 90)) and
           (isWithinErrorMargin(0, droppedObject.getRotation().z, TILE_PLACEMENT_MARGIN * 90) or
@@ -303,7 +303,7 @@ function onObjectDrop(player, droppedObject)
     lastDroppedObject_GUID = droppedObject.getGUID() --global used for the coroutines
     lastDroppedTime = os.clock()
     -- Checks if the dropped object was a single 'card' (tile)
-    if tostring(droppedObject) == 'Card(Clone) (LuaObject)' then
+    if isTileObject(droppedObject) then
         if turnState == 'awaiting tile placement' then
             Timer.create({identifier=droppedObject.getGUID() .. os.clock(), function_name='checkTile', function_owner=nil, parameters={time=lastDroppedTime}, delay=TILE_PLACEMENT_DELAY})
         else
@@ -400,7 +400,7 @@ function onObjectPickUp(player, pickedUpObject)
         lastDroppedTime = 0
     end
 
-    if tostring(pickedUpObject) == 'Card(Clone) (LuaObject)' and getTileDataForTile(pickedUpObject).sides ~= nil then
+    if isTileObject(pickedUpObject) then
         pickedUpObject.clearButtons()
         local xPosition = (pickedUpObject.getPosition().x + MIDDLE_OFFSET.x) / TILE_SPACING
         local zPosition = (pickedUpObject.getPosition().z + MIDDLE_OFFSET.z) / TILE_SPACING

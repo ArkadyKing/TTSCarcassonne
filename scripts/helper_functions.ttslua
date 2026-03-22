@@ -373,3 +373,21 @@ function rotateCoordinatesDegrees(x, z, rotation)
     local new_z = z * math.cos(rad_rotation) + x * math.sin(rad_rotation)
     return new_x, new_z
 end
+
+-- Проверяет, является ли объект любой картой TTS.
+-- Использует obj.type — стабильное свойство официального TTS API,
+-- не зависящее от внутренних имён Unity-классов (которые менялись в TTS 14.2).
+-- Используется там, где нужно просто отличить карту от фигурки/зоны/etc.
+function isCardObject(obj)
+    if obj == nil then return false end
+    return obj.type == "Card"
+end
+
+-- Проверяет, является ли объект игровым тайлом Carcassonne.
+-- Помимо проверки типа карты, убеждается что у объекта есть данные тайла
+-- (это отсекает карты в руке игрока и другие не-тайловые карты в сцене).
+function isTileObject(obj)
+    if not isCardObject(obj) then return false end
+    local data = getTileDataForTile(obj)
+    return data ~= nil and data.sides ~= nil
+end
