@@ -150,6 +150,16 @@ function localizeUI(language)
         --ControlPanelPageLabel
         self.UI.setAttribute("NextPageLabel", "width", 310)
     end
+    if language == 'ru-RU' then
+        self.UI.setAttribute("WoFTilesLabel", "fontSize", 50)
+        self.UI.setAttribute("StartingTileWoFLabel", "fontSize", 50)
+        self.UI.setAttribute("WoFInquisitionLabel", "fontSize", 46)
+        self.UI.setAttribute("FlierTilesLabel", "fontSize", 48)
+        self.UI.setAttribute("FlierFlierLabel", "fontSize", 48)
+        self.UI.setAttribute("FerriesTilesLabel", "fontSize", 50)
+        self.UI.setAttribute("FerriesFerriesLabel", "fontSize", 50)
+        self.UI.setAttribute("MnWTilesLabel", "fontSize", 50)
+    end
 end
 
 function initializeAllCheckbox(x, z, key, description)

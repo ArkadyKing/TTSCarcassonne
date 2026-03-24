@@ -33,6 +33,7 @@
         <Button id="en-US" class="LanguageButton" tooltip="English (US)" tooltipPosition="Above" icon="UK/US Flag"></Button>
         <Button id="nl-NL" class="LanguageButton" tooltip="Dutch (NL)" tooltipPosition="Above" icon="NL Flag"></Button>
         <Button id="zh-TW" class="LanguageButton" tooltip="Chinese (Traditional)" tooltipPosition="Above" icon="TW Flag"></Button>
+		<Button id="ru-RU" class="LanguageButton" tooltip="Russian (RU)" tooltipPosition="Above" icon="RU Flag"></Button>
     </VerticalLayout>
     <!-- AI/Hotseats -->
     <Text id="AI/Hotseat" text="AI/Hotseat (H)" class="ControlPanelSubCategoryLabel"

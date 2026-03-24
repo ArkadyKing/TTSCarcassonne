@@ -373,3 +373,21 @@ function rotateCoordinatesDegrees(x, z, rotation)
     local new_z = z * math.cos(rad_rotation) + x * math.sin(rad_rotation)
     return new_x, new_z
 end
+
+-- Checks whether the object is any TTS map.
+-- Uses obj.type, a stable property of the official TTS API,
+-- independent of the internal Unity class names (which changed in TTS 14.2).
+-- Used when you simply need to distinguish a map from a figure/zone/etc.
+function isCardObject(obj)
+    if obj == nil then return false end
+    return obj.type == "Card"
+end
+
+-- Checks if the object is a Carcassonne game tile.
+-- In addition to checking the card type, ensures that the object has tile data.
+-- (This filters out cards in the player's hand and other non-tile cards in the scene).
+function isTileObject(obj)
+    if not isCardObject(obj) then return false end
+    local data = getTileDataForTile(obj)
+    return data ~= nil and data.sides ~= nil
+end

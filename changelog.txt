@@ -1,3 +1,14 @@
+v1.24 2026-03-24
+[*] Fixed compatibility issues with TTS v14.2
+[*] Changed sheep tokens order in HnS bag to random, reduced token size so they no longer collide with other objects
+[*] Added stable helper functions for object type detection:
+    • isCardObject(obj) — checks if object is a Card using official TTS API (obj.type)
+    • isTileObject(obj) — checks if object is a Carcassonne tile (Card + has tile data)
+[*] Replaced all unreliable string checks (`tostring(...) == 'Card(Clone) (LuaGameObjectScript)'`) with the new `isCardObject()` and `isTileObject()` functions
+
+v1.23.1 2022-04-12
+[*]Russian translation added
+
 v1.23 20200525
 [*]Greatly optimized the metadata that is stored when saving. The result is a massive reduction in stuttering that occurs during autosaves (especially with playing with lots of tiles). Instead, this metadata will be regenerated from scratch when the game is loaded.
 [*]Moved all tile data from being stored in the tiles to being stored in the global script. This eliminates the need to store the tile data in unusedTiles

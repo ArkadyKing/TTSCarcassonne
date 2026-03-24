@@ -156,6 +156,10 @@ function localizeUI(language)
         --ControlPanelPageLabel
         self.UI.setAttribute("NextPageLabel", "width", 310)
     end
+    if language == 'ru-RU' then
+        self.UI.setAttribute("BaseFollowersLabel", "fontSize", 50)
+        self.UI.setAttribute("InCBigFollowerLabel", "fontSize", 36)
+    end
 end
 
 function initializeAllCheckbox(x, z, key, description)

@@ -78,6 +78,12 @@ function localizeUI(language)
         --ControlPanelPageLabel
         self.UI.setAttribute("NextPageLabel", "width", 310)
     end
+    if language == 'ru-RU' then
+        self.UI.setAttribute("BaseNerfSmallCityLabel", "fontSize", 42)
+        self.UI.setAttribute("TowerNerfTowersLabel", "fontSize", 40)
+        self.UI.setAttribute("RiverMixAllLabel", "fontSize", 40)
+        self.UI.setAttribute("RIIDisablePigherdLabel", "fontSize", 48)
+    end
 end
 
 function checkAllCheckboxes()
